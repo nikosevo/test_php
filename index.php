@@ -1,3 +1,15 @@
+<?php 
+  $servername = "127.0.0.1";
+  $username = "root";
+  $database = "eshops";
+
+  $conn = new mysqli($servername, $username,"",$database);
+
+  if($conn->connect_error){
+    die("connection failed");
+  }
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -25,38 +37,83 @@
 
   </head>
 
-  <body>
-  <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-  </body>
+  <!-- TABLE FOR FIRST QUERY -->
+  <?php echo "FIND STORE FILTERING BY ID"; ?>
+  <form action="#" method="post">
+    <input name="TK" value="88695"/>
+    <input type="submit" value="Submit"/>
+  </form>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Store Num</th>
+          <th scope="col">Name</th>
+          <th scope="col">Phone Num</th>
+          <th scope="col">Tk</th>
+        </tr>
+      </thead>
+    <?php 
+      $tk = $_POST["TK"];
+      $sql = "SELECT * FROM store where TK = ".$tk;
+      $result = $conn->query($sql);
+      while($row = $result->fetch_assoc()){ 
+    ?>
+      
+        <tbody>
+          <tr>
+            <td><?php echo $row["Store_id"];?> </td>
+            <td><?php echo $row["Name"];?> </td>
+            <td><?php echo $row["Phone"];?> </td>
+            <td><?php echo $row["TK"];?> </td>
+          </tr>
+
+        </tbody>
+      </table>
+    
+    <?php } ?>
+
+    <!-- END TABLE FOR FIRST QUERY -->
+
+      <!-- TABLE FOR SECOND QUERY -->
+  <?php echo "FIND STORE FILTERING BY ID"; ?>
+  <form action="#" method="post">
+    <input name="TK" value="88695"/>
+    <input type="submit" value="Submit"/>
+  </form>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Store Num</th>
+          <th scope="col">Name</th>
+          <th scope="col">Phone Num</th>
+          <th scope="col">Tk</th>
+        </tr>
+      </thead>
+    <?php 
+      $tk = $_POST["TK"];
+      $sql = "SELECT * FROM store where TK = ".$tk;
+      $result = $conn->query($sql);
+      while($row = $result->fetch_assoc()){ 
+    ?>
+      
+        <tbody>
+          <tr>
+            <td><?php echo $row["Store_id"];?> </td>
+            <td><?php echo $row["Name"];?> </td>
+            <td><?php echo $row["Phone"];?> </td>
+            <td><?php echo $row["TK"];?> </td>
+          </tr>
+
+        </tbody>
+      </table>
+    
+    <?php } ?>
+
+    <!-- END TABLE FOR SECOND QUERY -->
+
+    
+
+
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
