@@ -68,16 +68,16 @@
           </tr>
 
         </tbody>
+        
+        <?php } ?>
       </table>
-    
-    <?php } ?>
 
     <!-- END TABLE FOR FIRST QUERY -->
 
       <!-- TABLE FOR SECOND QUERY -->
   <?php echo "FIND STORE FILTERING BY ID"; ?>
   <form action="#" method="post">
-    <input name="TK" value="88695"/>
+    <input name="prod_price" value="store"/>
     <input type="submit" value="Submit"/>
   </form>
     <table class="table">
@@ -90,24 +90,25 @@
         </tr>
       </thead>
     <?php 
-      $tk = $_POST["TK"];
-      $sql = "SELECT * FROM store where TK = ".$tk;
+      $tk = $_POST["prod_price"];
+      $sql = "SELECT * FROM `product` WHERE price = (SELECT MIN(price) FROM product);";
       $result = $conn->query($sql);
       while($row = $result->fetch_assoc()){ 
     ?>
       
         <tbody>
           <tr>
-            <td><?php echo $row["Store_id"];?> </td>
-            <td><?php echo $row["Name"];?> </td>
-            <td><?php echo $row["Phone"];?> </td>
-            <td><?php echo $row["TK"];?> </td>
+            <td><?php echo $row["Product_id"];?> </td>
+            <td><?php echo $row["Price"];?> </td>
+            <td><?php echo $row["Description"];?> </td>
+            <td><?php echo $row["Categhory_id"];?> </td>
           </tr>
 
         </tbody>
-      </table>
+  
     
     <?php } ?>
+    </table>
 
     <!-- END TABLE FOR SECOND QUERY -->
 
