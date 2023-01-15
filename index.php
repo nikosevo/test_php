@@ -38,83 +38,80 @@
   </head>
 
   <!-- TABLE FOR FIRST QUERY -->
-  <?php echo "FIND STORE FILTERING BY ID"; ?>
-  <form action="#" method="post">
-    <input name="TK" value="88695"/>
-    <input type="submit" value="Submit"/>
+  <?php echo "1. FIND STORE FILTERING BY TK"; ?>
+  <form action="firstQuery.php" method="post">
+    <input type="submit" value="Go"/>
   </form>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Store Num</th>
-          <th scope="col">Name</th>
-          <th scope="col">Phone Num</th>
-          <th scope="col">Tk</th>
-        </tr>
-      </thead>
-    <?php 
-      $tk = $_POST["TK"];
-      $sql = "SELECT * FROM store where TK = ".$tk;
-      $result = $conn->query($sql);
-      while($row = $result->fetch_assoc()){ 
-    ?>
-      
-        <tbody>
-          <tr>
-            <td><?php echo $row["Store_id"];?> </td>
-            <td><?php echo $row["Name"];?> </td>
-            <td><?php echo $row["Phone"];?> </td>
-            <td><?php echo $row["TK"];?> </td>
-          </tr>
-
-        </tbody>
-        
-        <?php } ?>
-      </table>
-
-    <!-- END TABLE FOR FIRST QUERY -->
-
-      <!-- TABLE FOR SECOND QUERY -->
-  <?php echo "FIND STORE FILTERING BY ID"; ?>
-  <form action="#" method="post">
-    <input name="prod_price" value="store"/>
-    <input type="submit" value="Submit"/>
-  </form>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Store Num</th>
-          <th scope="col">Name</th>
-          <th scope="col">Phone Num</th>
-          <th scope="col">Tk</th>
-        </tr>
-      </thead>
-    <?php 
-      $tk = $_POST["prod_price"];
-      $sql = "SELECT * FROM `product` WHERE price = (SELECT MIN(price) FROM product);";
-      $result = $conn->query($sql);
-      while($row = $result->fetch_assoc()){ 
-    ?>
-      
-        <tbody>
-          <tr>
-            <td><?php echo $row["Product_id"];?> </td>
-            <td><?php echo $row["Price"];?> </td>
-            <td><?php echo $row["Description"];?> </td>
-            <td><?php echo $row["Categhory_id"];?> </td>
-          </tr>
-
-        </tbody>
-  
+  <!-- END TABLE FOR FIRST QUERY -->
     
-    <?php } ?>
-    </table>
-
+  <!-- TABLE FOR SECOND QUERY -->
+  <?php echo "2. FIND THE CHEAPEST PRODUCT"; ?>
+  <form action="secondQuery.php" method="post">
+    <input type="submit" value="Go"/>
+  </form>
     <!-- END TABLE FOR SECOND QUERY -->
+ 
+    <!-- START TABLE FOR THIRD QUERY--> 
+    <?php echo "3. FIND MOST EXPENSIVE ORDER"; ?>
+    <form action="thirdQuery.php" method="post">
+      <input type="submit" value="Go"/>
+    </form>
+    <!-- END TABLE FOR THIRD QUERY -->
 
+
+    <!-- START TABLE FOR FOURTH QUERY--> 
+    <?php echo "4. TOTAL COST OF PRODUCTS IN EACH CATEGORY"; ?>
+    <form action="fourthQuery.php" method="post">
+      <input type="submit" value="Go"/>
+    </form>
+    <!-- END TABLE FOR FOURTH QUERY -->
+
+
+    <!-- START TABLE FOR FIFTH QUERY--> 
+    <?php echo "5. NUMBER OF PRODUCTS IN EACH CATEGORY"; ?>
+    <form action="fifthQuery.php" method="post">
+      <input type="submit" value="Go"/>
+    </form>
+    <!-- END TABLE FOR FIFTH QUERY -->
+
+
+    <!-- START TABLE FOR 6 QUERY--> 
+    <?php echo "6. DISPLAY PRODUCTS FROM CHEAPEST TO MOST EXPENSIVE"; ?>
+    <form action="sixthQuery.php" method="post">
+      <input type="submit" value="Go"/>
+    </form>
+    <!-- END TABLE FOR 6 QUERY -->
     
+    <!-- START TABLE FOR 7 QUERY--> 
+    <?php echo "7. EMPLEYS RANKED BY SALARI"; ?>
+    <form action="seventhQuery.php" method="post">
+      <input type="submit" value="Go"/>
+    </form>
+    <!-- END TABLE FOR 7 QUERY -->
 
 
+    <!-- START TABLE FOR 8 QUERY--> 
+    <?php echo "8. SHOW COSTUMERS WHO MADE DELIVERY MORE THAT X EUROS "; ?>
+    <form action="eighthQuery.php" method="post">
+      <input type="submit" value="Go"/>
+    </form>
+    <!-- END TABLE FOR 8 QUERY -->
+
+
+    <!-- START TABLE FOR 9 QUERY--> 
+    <?php echo "9. SHOW ORDERS THAT HAVE X PROD"; ?>
+    <form action="ninethQuery.php" method="post">
+      <input type="submit" value="Go"/>
+    </form>
+    <!-- END TABLE FOR 9 QUERY -->
+
+
+    <!-- START TABLE FOR 10 QUERY--> 
+    <?php echo "10. SELLERS IN EACH SHOP"; ?>
+    <form action="tenthQuery.php" method="post">
+      <input type="submit" value="Go"/>
+    </form>
+    <!-- END TABLE FOR 10 QUERY -->
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
